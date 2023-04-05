@@ -1,9 +1,13 @@
-import PlateformFilter from "./PlateformFilter";
+import PlatformFilter from "./PlatformFilter";
+import GenreFilter from "./GenreFilter";
+import ExtraFilter from "./ExtraFilter";
 
 const FilterBar = () => {
   return (
     <div>
-      <PlateformFilter />
+      <PlatformFilter />
+      <GenreFilter />
+      <ExtraFilter />
     </div>
   );
 };

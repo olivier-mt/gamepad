@@ -3,14 +3,14 @@ import { RootState } from "../../app/store";
 
 export interface filterInterface {
   platformFilter: string;
-  type: string;
+  genreFilter: string;
   extraFilters: "name" | "released" | "rating" | "none";
 }
 
 const initialState: filterInterface = {
   platformFilter: "",
-  type: "",
-  extraFilters: "rating",
+  genreFilter: "",
+  extraFilters: "none",
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -44,6 +44,24 @@ export const filterSlice = createSlice({
       // immutable state based off those changes
       state.platformFilter = action.payload;
     },
+    modifyGenreFilter: (state, action: PayloadAction<string>) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.genreFilter = action.payload;
+    },
+    modifyExtraFilter: (
+      state,
+      action: PayloadAction<"name" | "released" | "rating" | "none">
+    ) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.extraFilters = action.payload;
+    },
+
     /*
     decrementPageNumber: (state) => {
       state.page -= 1;
@@ -83,7 +101,8 @@ export const filterSlice = createSlice({
   */
 });
 
-export const { modifyPlateformFilter } = filterSlice.actions;
+export const { modifyPlateformFilter, modifyGenreFilter, modifyExtraFilter } =
+  filterSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

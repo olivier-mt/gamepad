@@ -12,11 +12,9 @@ const GamesView = () => {
     (state) => state.filter.platformFilter
   );
 
-  const typeFilter = useAppSelector((state) => state.filter.type);
+  const genreFilter = useAppSelector((state) => state.filter.genreFilter);
 
   const extraFilters = useAppSelector((state) => state.filter.extraFilters);
-
-  // console.log("plateformFilter", plateformFilterArr);
 
   const displayFilteredGameList = (gameListArr: any) => {
     // if(plateformFilter === "" && typeFilter == "" && !nameFilter && !dateFilter    ){}
@@ -33,8 +31,6 @@ const GamesView = () => {
     if (plateformFilter === "") {
       //return gameListObj.value.results
       finalArr = [...gameListObj.value.results];
-      console.log("All", gameListObj.value.results);
-      console.log("finalArr", finalArr);
     } else {
       // const newArr: { name: string }[] = [];
 
@@ -47,30 +43,24 @@ const GamesView = () => {
           }
         });
       });
-
-      console.log("Filtered finalArr", finalArr);
     }
 
     /*-----------------------------------*/
 
     /*----------- TYPE FILTER  -----------*/
 
-    if (typeFilter) {
+    if (genreFilter) {
       let newArr: any[] = [];
 
       finalArr.forEach((obj) => {
         obj.genres.forEach((elem) => {
-          if (elem.name == typeFilter) {
+          if (elem.name == genreFilter) {
             newArr.push(obj);
           }
         });
       });
 
       finalArr = [...newArr];
-
-      console.log("type filtered finalArr", finalArr);
-    } else {
-      console.log("no type filter");
     }
 
     /*------------ NAME / RELEASE DATE / AVERAGE RANKING FILTER  ---------------*/
@@ -89,6 +79,8 @@ const GamesView = () => {
       });
 
       finalArr = [...newArr];
+
+      console.log("extra Filters name", finalArr);
     } else if (extraFilters === "released") {
       let newArr = [...finalArr];
 
@@ -103,10 +95,10 @@ const GamesView = () => {
       });
 
       finalArr = [...newArr];
+
+      console.log("extra Filters released", finalArr);
     } else if (extraFilters === "rating") {
       let newArr = [...finalArr];
-
-      console.log("before rating sorting", finalArr);
 
       newArr.sort(function (a, b) {
         if (a.rating < b.rating) {
@@ -120,7 +112,7 @@ const GamesView = () => {
 
       finalArr = [...newArr];
 
-      console.log("after rating sorting", finalArr);
+      console.log("extra Filters rating", finalArr);
     }
 
     /*-----------------------------------------*/
