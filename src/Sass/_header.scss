@@ -1,0 +1,13 @@
+@use "app" as app;
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid app.$tertiary-color;
+  &__logo {
+    margin-left: app.$side-margins;
+    font-weight: bolder;
+    font-size: larger;
+  }
+}

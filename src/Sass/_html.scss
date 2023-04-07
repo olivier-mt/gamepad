@@ -1,0 +1,9 @@
+@use 'app';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: app.$primary-color; /* Couleur de fond pour éviter de voir un fond blanc */
+}

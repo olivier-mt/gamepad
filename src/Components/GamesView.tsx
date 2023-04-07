@@ -25,6 +25,7 @@ const GamesView = () => {
       released: string;
       rating: string;
       id: string;
+      background_image: string;
     }[] = [];
     /*---- PLATFORM FILTER  ----*/
 
@@ -117,11 +118,13 @@ const GamesView = () => {
 
     /*-----------------------------------------*/
 
-    return finalArr.map((obj) => <GamePreview name={obj.name} key={obj.id} />);
+    return finalArr.map((obj) => (
+      <GamePreview name={obj.name} img={obj.background_image} key={obj.id} />
+    ));
   };
 
   return (
-    <div>
+    <div className="home__gameView">
       {gameListObj.value.results && displayFilteredGameList(gameListArr)}
     </div>
   );

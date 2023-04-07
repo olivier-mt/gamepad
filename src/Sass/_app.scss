@@ -1,0 +1,15 @@
+$primary-color: #1f2023;
+$secondary-color: #ffffff;
+$tertiary-color: #ff4655;
+$side-margins: 30px;
+
+@mixin horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  background-color: $primary-color;
+  color: $secondary-color;
+  // @include centerContent();
+}

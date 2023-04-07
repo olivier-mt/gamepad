@@ -4,7 +4,7 @@ import ExtraFilter from "./ExtraFilter";
 
 const FilterBar = () => {
   return (
-    <div>
+    <div className="home__filter">
       <PlatformFilter />
       <GenreFilter />
       <ExtraFilter />

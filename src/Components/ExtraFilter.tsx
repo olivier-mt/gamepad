@@ -8,9 +8,9 @@ const ExtraFilter = () => {
   const dispatch = useAppDispatch();
 
   const options = [
-    { value: "name", label: "name" },
-    { value: "released", label: "release date" },
-    { value: "rating", label: "rating" },
+    { value: "name", label: "Name" },
+    { value: "released", label: "Release date" },
+    { value: "rating", label: "Rating" },
   ];
 
   return (

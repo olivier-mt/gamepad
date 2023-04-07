@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { selectGame, getGameListAsync } from "../features/games/gameSlice";
-
-import "../App.css";
+import "../Sass/_home.scss";
+//import "../App.css";
 import Header from "../Components/Header";
 import Search from "../Components/Search";
 import GamesView from "../Components/GamesView";
@@ -21,17 +21,24 @@ const Home = () => {
   const gameListObj = useAppSelector((state) => state.game);
 
   return (
-    <div className="App">
+    <div>
       <Header />
-      <p>Home</p>
-      <Search />
 
-      <FilterBar />
-      <p>{urlState.search && `Search results for "${urlState.search}"`}</p>
-      <p> {gameListObj.value.count && `${gameListObj.value.count} games`} </p>
-      <div>
-        <GamesView />
-        <PageSelector />
+      <div className="home">
+        <p className="home__title">Gamepad</p>
+        <Search />
+
+        <FilterBar />
+        <p className="home__gameSearch">
+          {urlState.search && `Search results for "${urlState.search}"`}
+        </p>
+        <p className="home__gameNumb">
+          {gameListObj.value.count && `${gameListObj.value.count} games`}
+        </p>
+        <div>
+          <GamesView />
+          <PageSelector />
+        </div>
       </div>
     </div>
   );

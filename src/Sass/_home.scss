@@ -1,0 +1,92 @@
+@use 'app';
+
+.home {
+  max-width: fit-content;
+
+  &__title {
+    font-weight: bolder;
+    font-size: 80px;
+    @include app.horizontal-center;
+  }
+  &__search {
+    @include app.horizontal-center;
+    margin-bottom: 50px;
+
+    &__bar {
+      height: 40px;
+      width: 500px;
+      background-color: app.$secondary-color;
+      border: none;
+    }
+    &__button {
+      height: 40px;
+      border: none;
+      background-color: app.$secondary-color;
+    }
+  }
+  &__filter {
+    display: flex;
+    color: black;
+    margin-left: app.$side-margins;
+  }
+  &__gameView {
+    margin-left: app.$side-margins;
+    margin-right: app.$side-margins;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__game {
+      position: relative;
+
+      margin-left: 10px;
+
+      margin-right: 10px;
+      width: 200px;
+      height: 300px;
+      border: 1px solid app.$tertiary-color;
+      margin-bottom: 20px;
+      border-radius: 5%;
+
+      &__img {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5%;
+      }
+      &__title {
+        position: absolute;
+        z-index: 1;
+        margin-top: -65px;
+        margin-left: 10px;
+        font-weight: 700;
+      }
+    }
+  }
+  &__gameSearch {
+    @include app.horizontal-center;
+    font-weight: 300;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+  &__gameNumb {
+    @include app.horizontal-center;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  &__pageBtn {
+    display: flex;
+    justify-content: center;
+
+    &__btn {
+      background-color: app.$secondary-color;
+      border: none;
+      border-radius: 5%;
+      margin: 10px;
+      font-weight: 600;
+      height: 20px;
+    }
+  }
+}

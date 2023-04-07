@@ -36,10 +36,10 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <p>Search</p>
+    <div className="home__search">
       <form>
         <input
+          className="home__search__bar"
           type="text"
           name="searchInput"
           placeholder="Search for a game"
@@ -47,7 +47,12 @@ const Search = () => {
             setSearch(e.currentTarget.value);
           }}
         />
-        <input type="button" value="search" onClick={() => makeNewSearch()} />
+        <input
+          className="home__search__button"
+          type="button"
+          value="search"
+          onClick={() => makeNewSearch()}
+        />
       </form>
     </div>
   );

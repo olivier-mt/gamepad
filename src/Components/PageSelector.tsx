@@ -30,11 +30,18 @@ const PageSelector = () => {
   };
 
   return (
-    <div>
+    <div className="home__pageBtn">
       {gameListState.value.previous && (
-        <button onClick={() => getPreviousPage()}>{"< Previous"}</button>
+        <button
+          className="home__pageBtn__btn"
+          onClick={() => getPreviousPage()}
+        >
+          {"< Previous"}
+        </button>
       )}
-      <button onClick={() => getNextPage()}>{"Next >"}</button>
+      <button className="home__pageBtn__btn" onClick={() => getNextPage()}>
+        {"Next >"}
+      </button>
     </div>
   );
 };
