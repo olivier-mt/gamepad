@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-
-export interface UrlInterface {
-  url: string;
-  page: number;
-  search: string;
-}
+import { UrlInterface } from "../Interfaces/Interfaces";
 
 const initialState: UrlInterface = {
   page: 1,

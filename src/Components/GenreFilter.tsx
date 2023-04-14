@@ -2,6 +2,7 @@ import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { useAppDispatch } from "../app/hooks";
 import { modifyGenreFilter } from "../features/games/filterSlice";
+import { SingleValue, ActionMeta } from "react-select";
 
 const GenreFilter = () => {
   type Genre = {
@@ -37,7 +38,17 @@ const GenreFilter = () => {
         cacheOptions
         defaultOptions
         loadOptions={getAllGenre}
-        onChange={(obj: any) => dispatch(modifyGenreFilter(obj.value))}
+        //onChange={(obj: any) => dispatch(modifyGenreFilter(obj.value))}
+
+        onChange={(
+          newValue: SingleValue<{ value?: string }>,
+          actionMeta: ActionMeta<{}>
+        ) => {
+          if (newValue !== null && newValue.value !== undefined) {
+            const newValueString = newValue.value;
+            dispatch(modifyGenreFilter(newValueString));
+          }
+        }}
         placeholder="Genre"
       />
     </div>

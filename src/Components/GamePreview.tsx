@@ -1,10 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-type GamePreviewProps = {
-  name: string;
-  img: string;
-  id: number;
-};
+import { GamePreviewProps } from "../features/Types/Types";
 
 const GamePreview = ({ name, img, id }: GamePreviewProps) => {
   const navigate = useNavigate();

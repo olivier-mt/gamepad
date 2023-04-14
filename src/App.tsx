@@ -1,10 +1,8 @@
 import Home from "./Container/Home";
 import GameDetailsPage from "./Container/GameDetailsPage";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  let { gameId } = useParams();
-
   return (
     <div className="app">
       <Routes>

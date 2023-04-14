@@ -1,6 +1,7 @@
 import GamePreview from "../Components/GamePreview";
 import { useAppSelector } from "../app/hooks";
-import { GameInterface } from "../features/games/gameSlice";
+import { GameInterface } from "../features/Interfaces/Interfaces";
+import { GameObj, PlatformObj } from "../features/Types/Types";
 
 const DisplayFilteredGameList = (gameListObj: GameInterface) => {
   const gameListArr = gameListObj.value.results;
@@ -13,21 +14,14 @@ const DisplayFilteredGameList = (gameListObj: GameInterface) => {
 
   const extraFilters = useAppSelector((state) => state.filter.extraFilters);
 
-  let finalArr: {
-    name: string;
-    genres: { name: string }[];
-    released: string;
-    rating: string;
-    id: number;
-    background_image: string;
-  }[] = [];
+  let finalArr: GameObj[] = [];
   /*---- PLATFORM FILTER  ----*/
 
   if (plateformFilter === "") {
     finalArr = [...gameListObj.value.results];
   } else {
-    gameListArr.forEach((obj: any) => {
-      obj.platforms.forEach((platformObj: any) => {
+    gameListArr.forEach((obj: GameObj) => {
+      obj.platforms.forEach((platformObj: PlatformObj) => {
         if (platformObj.platform.name === plateformFilter) {
           finalArr.push(obj);
         }
@@ -40,7 +34,7 @@ const DisplayFilteredGameList = (gameListObj: GameInterface) => {
   /*----------- TYPE FILTER  -----------*/
 
   if (genreFilter) {
-    let newArr: any[] = [];
+    let newArr: GameObj[] = [];
 
     finalArr.forEach((obj) => {
       obj.genres.forEach((elem) => {

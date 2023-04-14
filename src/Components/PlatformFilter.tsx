@@ -2,6 +2,7 @@ import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { modifyPlateformFilter } from "../features/games/filterSlice";
+import { SingleValue, ActionMeta } from "react-select";
 
 const PlatformFilter = () => {
   type Platform = {
@@ -37,7 +38,16 @@ const PlatformFilter = () => {
         cacheOptions
         defaultOptions
         loadOptions={getAllPlatform}
-        onChange={(obj: any) => dispatch(modifyPlateformFilter(obj.value))}
+        // onChange={(obj: {value: string}) => dispatch(modifyPlateformFilter(obj.value))}
+        onChange={(
+          newValue: SingleValue<{ value: string }>,
+          actionMeta: ActionMeta<{ value: string }>
+        ) => {
+          if (newValue !== null) {
+            const newValueString = newValue.value;
+            dispatch(modifyPlateformFilter(newValueString));
+          }
+        }}
         placeholder="Select a platform"
       />
     </div>

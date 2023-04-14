@@ -1,16 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, AppThunk } from "../../app/store";
 import axios from "axios";
+import { GameInterface } from "../Interfaces/Interfaces";
 //import { fetchCount } from "./counterAPI";
-
-export interface GameInterface {
-  value: {
-    count: number;
-    results: [];
-    previous: string;
-  };
-  status: "idle" | "loading" | "failed";
-}
 
 const initialState: GameInterface = {
   value: {
